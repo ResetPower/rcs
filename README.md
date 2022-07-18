@@ -20,7 +20,7 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.tsx",
-+   "./node_modules/@resetpower/rcs/**/*.jsx"
++   "./node_modules/@resetpower/rcs/**/*.js"
   ],
   theme: {
     extend: {
