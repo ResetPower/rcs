@@ -1,0 +1,7 @@
+@layer components {
+  .rcs-hover {
+    @apply bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0
+      hover:bg-opacity-5 dark:hover:bg-opacity-5
+      active:bg-opacity-10 dark:active:bg-opacity-10 transition-colors;
+  }
+}

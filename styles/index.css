@@ -1,0 +1,37 @@
+@import "pre.css";
+@import "button.css";
+@import "textfield.css";
+@import "checkbox.css";
+@import "link.css";
+@import "list.css";
+@import "tab.css";
+@import "anime.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply bg-background text-contrast;
+  }
+  .rcs-appbar {
+    @apply bg-primary shadow-lg flex py-5 px-3 items-center z-30 top-0 h-16;
+    animation: slideAppBar 300ms;
+  }
+  .rcs-appbar-title {
+    @apply flex-grow select-none pl-3 text-xl font-medium;
+  }
+  .rcs-label {
+    @apply text-gray-600 dark:text-gray-400 font-bold text-sm pl-1;
+  }
+  .rcs-label:disabled {
+    @apply text-shallow dark:text-shallow;
+  }
+  .rcs-helper-text {
+    @apply text-sm -bottom-6 text-shallow;
+  }
+  .rcs-helper-text-error {
+    @apply text-danger;
+  }
+}

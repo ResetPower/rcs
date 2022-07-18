@@ -1,0 +1,5 @@
+@layer components {
+  .rcs-lnk {
+    @apply text-blue-500 hover:underline cursor-pointer select-none;
+  }
+}

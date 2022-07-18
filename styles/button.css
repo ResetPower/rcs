@@ -1,0 +1,27 @@
+@layer components {
+  .rcs-btn {
+    @apply select-none flex items-center px-4 py-2 m-1 rounded-md text-sm font-medium transition-colors focus:outline-none;
+  }
+  .rcs-btn:disabled {
+    @apply cursor-not-allowed text-slate-400;
+  }
+  .rcs-btn-text {
+    @apply shadow-sm;
+  }
+  .rcs-btn-text:disabled {
+    @apply hover:bg-opacity-0;
+  }
+  .rcs-btn-contained {
+    @apply text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700;
+  }
+  .rcs-btn-contained:disabled {
+    @apply bg-blue-800 dark:bg-gray-700 text-gray-200;
+  }
+
+  .rcs-icon-btn {
+    @apply select-none cursor-pointer rounded-full h-12 w-12 flex justify-center items-center;
+  }
+  .rcs-icon-btn-active {
+    @apply bg-opacity-5;
+  }
+}

@@ -1,0 +1,25 @@
+@layer components {
+  .rcs-tf {
+    @apply flex-1 appearance-none border border-divider w-full py-2 px-4 bg-card
+      text-gray-700 dark:text-gray-50 placeholder-gray-400 shadow-sm text-base focus:outline-none;
+  }
+  .rcs-tf-icon {
+    @apply rounded-l-lg inline-flex items-center px-3
+      border-t bg-white dark:bg-gray-700 border-l border-b border-divider text-shallow shadow-sm;
+  }
+  .rcs-tf-trailing {
+    @apply rounded-r-lg inline-flex items-center px-3
+      border-t bg-white dark:bg-gray-700 border-r border-b border-divider text-shallow shadow-sm;
+  }
+
+  .rcs-tiny-tf {
+    @apply appearance-none bg-inherit focus:outline-none border-b border-divider focus:border-blue-500;
+  }
+}
+
+input[type="number"].no-spin-button::-webkit-outer-spin-button,
+input[type="number"].no-spin-button::-webkit-inner-spin-button {
+  display: none;
+  appearance: none;
+  margin: 0;
+}

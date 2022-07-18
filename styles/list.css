@@ -1,0 +1,11 @@
+@layer components {
+  .rcs-li {
+    @apply select-none cursor-pointer items-center px-3 py-2;
+  }
+  .rcs-li-active {
+    @apply bg-opacity-5 dark:bg-opacity-5;
+  }
+  .rcs-li-independent {
+    @apply rounded-md m-1;
+  }
+}
