@@ -13,6 +13,7 @@ import { useState } from "react";
 export default function InputExample() {
   const [checked, setChecked] = useState(false);
   const [value, setValue] = useState("");
+  const [sfValue, setSfValue] = useState("");
 
   return (
     <div>
@@ -44,8 +45,11 @@ export default function InputExample() {
           Description
         </Checkbox>
       </Booth>
-      <Booth title="Hyperlink">
-        <Hyperlink>Content</Hyperlink>
+      <Booth title="Hyperlink" flex>
+        <Hyperlink paddingX>Content</Hyperlink>
+        <Hyperlink button paddingX>
+          Button
+        </Hyperlink>
       </Booth>
       <Booth className="space-y-5" title="TextField">
         <div>

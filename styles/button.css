@@ -5,9 +5,6 @@
   .rcs-btn:disabled {
     @apply cursor-not-allowed text-slate-400;
   }
-  .rcs-btn-text {
-    @apply shadow-sm;
-  }
   .rcs-btn-text:disabled {
     @apply hover:bg-opacity-0;
   }

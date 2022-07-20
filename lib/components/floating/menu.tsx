@@ -1,6 +1,6 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
-import { FloatingView } from ".";
-import { Fn } from "../../utils";
+import { ReactNode } from "react";
+import { AccessibleNode, FloatingView } from ".";
+import { call, Fn } from "../../utils";
 import { ListItem } from "../list";
 
 export interface MenuItem {
@@ -11,22 +11,31 @@ export interface MenuItem {
 }
 
 export function Menu(props: {
-  children: ReactNode | ((open: boolean) => ReactNode);
+  children: AccessibleNode;
   items: MenuItem[];
-  className?: string;
+  padding?: number;
 }): JSX.Element {
   return (
-    <FloatingView opener={props.children}>
-      {props.items.map((value, index) => (
-        <ListItem
-          className={value.className}
-          key={index}
-          onClick={value.action}
-          dependent
-        >
-          {value.icon} <p className="flex-grow">{value.text}</p>
-        </ListItem>
-      ))}
+    <FloatingView
+      padding={props.padding}
+      className="py-2"
+      opener={props.children}
+    >
+      {(_, setOpen) =>
+        props.items.map((value, index) => (
+          <ListItem
+            className={value.className}
+            key={index}
+            onClick={() => {
+              call(value.action);
+              setOpen(false);
+            }}
+            dependent
+          >
+            {value.icon} <p className="flex-grow">{value.text}</p>
+          </ListItem>
+        ))
+      }
     </FloatingView>
   );
 }

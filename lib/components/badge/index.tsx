@@ -38,6 +38,7 @@ export function Badge(props: {
       } ${props.larger ? "text-sm" : "text-xs"} ${
         colorMap[props.variant ?? "default"]
       } ${props.className}`}
+      onClick={props.onClick}
     >
       {props.children}
     </div>
@@ -53,7 +54,7 @@ export function BadgeButton(props: {
 }) {
   return (
     <Badge
-      className={`cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-300 active:bg-blue-300 dark:active:bg-blue-400 transition-colors ${props.className}`}
+      className={`cursor-pointer flex items-center hover:bg-blue-200 dark:hover:bg-blue-300 active:bg-blue-300 dark:active:bg-blue-400 transition-colors ${props.className}`}
       variant="default"
       larger={props.larger}
       icon={props.icon}

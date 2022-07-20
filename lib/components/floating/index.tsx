@@ -1,44 +1,82 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { Placement, shift, useFloating } from "@floating-ui/react-dom";
+import { ReactNode, useCallback, useEffect, useState } from "react";
+
+export type AccessibleNode =
+  | ReactNode
+  | ((open: boolean, setOpen: (open: boolean) => unknown) => ReactNode);
+
+export function accessNode(
+  accessible: AccessibleNode,
+  open: boolean,
+  setOpen: (open: boolean) => unknown
+): ReactNode {
+  return accessible instanceof Function
+    ? accessible(open, setOpen)
+    : accessible;
+}
 
 export function FloatingView(props: {
-  opener: ReactNode | ((open: boolean) => ReactNode);
-  children: ReactNode;
+  opener: AccessibleNode;
+  children: AccessibleNode;
+  openerClassName?: string;
   className?: string;
+  placement?: Placement;
+  padding?: number;
 }): JSX.Element {
   const [show, setShow] = useState(false);
-  const ref = useRef<HTMLElement>();
+  const { x, y, refs, reference, floating, strategy } =
+    useFloating<HTMLElement>({
+      placement: props.placement ?? "bottom",
+      middleware: [
+        shift(props.padding ? { padding: props.padding } : undefined),
+      ],
+    });
 
-  const onDocumentClick = useCallback((event: MouseEvent) => {
-    if (!ref.current?.contains(event.target as Node)) {
-      setShow(false);
-    }
-  }, []);
+  const onDocumentClick = useCallback(
+    (event: Event) => {
+      if (
+        !refs.reference.current?.contains(event.target as Node) &&
+        !refs.floating.current?.contains(event.target as Node)
+      ) {
+        setShow(false);
+      }
+    },
+    [refs]
+  );
 
-  useEffect(() => {
-    if (show) {
-      document.addEventListener("click", onDocumentClick, false);
-      return () =>
-        document.removeEventListener("click", onDocumentClick, false);
-    }
-  }, [show]);
+  useEffect(
+    () =>
+      (show ? document.addEventListener : document.removeEventListener)(
+        "click",
+        onDocumentClick,
+        false
+      ),
+    [show]
+  );
 
   return (
-    <div className="relative">
+    <>
       <div
-        className="inline-block"
-        ref={(node) => (ref.current = node ?? undefined)}
-        onClick={() => setShow(!show)}
+        className={`inline-block ${props.openerClassName}`}
+        onClick={() => setShow((show) => !show)}
+        ref={reference}
       >
-        {props.opener instanceof Function ? props.opener(show) : props.opener}
+        {accessNode(props.opener, show, setShow)}
       </div>
       {show && (
         <div
-          className={`bg-card absolute py-2 rounded-md shadow-md z-20 ${props.className}`}
+          className={`bg-card text-contrast rounded-md shadow-md z-20 ${props.className}`}
+          ref={floating}
+          style={{
+            position: strategy,
+            top: y ?? 0,
+            left: x ?? 0,
+          }}
         >
-          {props.children}
+          {accessNode(props.children, show, setShow)}
         </div>
       )}
-    </div>
+    </>
   );
 }
 

@@ -3,10 +3,10 @@
     @apply p-3;
   }
   .rcs-tab-bar-horizontal {
-    @apply flex space-x-1 border-b border-divider;
+    @apply flex space-x-1;
   }
   .rcs-tab-bar-vertical {
-    @apply space-y-1 border-r border-divider;
+    @apply space-y-1;
   }
 
   .rcs-tab-bar-item {

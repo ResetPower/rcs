@@ -3,6 +3,7 @@ import { Fn } from "../../utils";
 
 export function Button(props: {
   children: ReactNode;
+  active?: boolean;
   className?: string;
   disabled?: boolean;
   onClick?: Fn;
@@ -17,9 +18,9 @@ export function Button(props: {
           : props.variant === "pill"
           ? "rcs-btn-contained rounded-full"
           : `rcs-btn-text dark:rcs-btn-text rcs-hover ${
-              props.variant === "outlined" ? "border border-divider" : ""
+              props.variant === "outlined" && "border border-divider shadow-sm"
             }`
-      } ${props.className}`}
+      } ${props.active && "rcs-hover-active"} ${props.className}`}
       onClick={props.onClick}
     >
       {props.children}
@@ -36,7 +37,7 @@ export function IconButton(props: {
   return (
     <div
       className={`rcs-icon-btn rcs-hover ${
-        props.active && "rcs-icon-btn-active"
+        props.active && "rcs-hover-active"
       } ${props.className}`}
       onClick={props.onClick}
     >

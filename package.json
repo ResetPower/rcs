@@ -1,6 +1,6 @@
 {
   "name": "@resetpower/rcs",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "ResetPower's Component Set",
   "main": "out/index.js",
   "scripts": {
@@ -48,6 +48,7 @@
     "tailwindcss": ">= 3.1.5"
   },
   "dependencies": {
+    "@floating-ui/react-dom": "^1.0.0",
     "react-icons": "^4.4.0",
     "react-transition-group": "^4.4.2"
   }

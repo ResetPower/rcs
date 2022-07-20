@@ -1,6 +1,11 @@
-import { MdBrightnessMedium } from "react-icons/md";
+import {
+  MdAdjust,
+  MdBrightnessMedium,
+  MdDeveloperBoard,
+  MdRefresh,
+} from "react-icons/md";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { AppBar, AppBarTitle, IconButton, ListItem } from "../lib";
+import { AppBar, AppBarTitle, IconButton, ListItem, Menu } from "../lib";
 import BadgeExample from "./examples/BadgeExample";
 import IndicatorExample from "./examples/IndicatorExample";
 import InputExample from "./examples/InputExample";
@@ -22,6 +27,24 @@ export default function App() {
         <IconButton className="text-lg" onClick={toggleTheme}>
           {<MdBrightnessMedium />}
         </IconButton>
+        <Menu
+          items={[
+            {
+              icon: <MdAdjust />,
+              text: "Adjust",
+            },
+            {
+              icon: <MdRefresh />,
+              text: "Reload",
+            },
+          ]}
+        >
+          {(open) => (
+            <IconButton active={open}>
+              <MdDeveloperBoard />
+            </IconButton>
+          )}
+        </Menu>
       </AppBar>
       <div className="flex-grow flex">
         <div className="text-center border-r border-divider w-1/6 space-y-3">

@@ -4,4 +4,7 @@
       hover:bg-opacity-5 dark:hover:bg-opacity-5
       active:bg-opacity-10 dark:active:bg-opacity-10 transition-colors;
   }
+  .rcs-hover-active {
+    @apply bg-opacity-5 dark:bg-opacity-5;
+  }
 }

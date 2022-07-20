@@ -16,7 +16,7 @@ export function Tooltip(props: {
         {props.children}
       </div>
       {show && (
-        <div className="bg-card absolute text-xs shadow-md rounded-md px-2 py-1">
+        <div className="bg-card absolute text-xs shadow-md text-contrast rounded-md px-2 py-1">
           {props.text}
         </div>
       )}

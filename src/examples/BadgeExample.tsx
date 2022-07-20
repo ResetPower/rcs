@@ -1,4 +1,4 @@
-import { MdMenu } from "react-icons/md";
+import { MdArrowDownward, MdMenu } from "react-icons/md";
 import { Badge, BadgeButton } from "../../lib/components/badge";
 import { Booth } from "../components";
 
@@ -41,10 +41,14 @@ export default function BadgeExample() {
       </Booth>
       <Booth className="space-y-1" title="Clickable Badge">
         <div className="flex">
-          <BadgeButton>Default</BadgeButton>
+          <BadgeButton onClick={() => console.log("Default!")}>
+            Default
+          </BadgeButton>
         </div>
-        <div className="flex">
-          <BadgeButton larger>Default</BadgeButton>
+        <div className="flex" onClick={() => console.log("Default With Icon!")}>
+          <BadgeButton larger>
+            Default With Icon <MdArrowDownward />
+          </BadgeButton>
         </div>
       </Booth>
       <Booth title="Icon Badge" flex>

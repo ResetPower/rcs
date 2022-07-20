@@ -6,10 +6,15 @@ export function Hyperlink(props: {
   onClick?: Fn;
   children?: ReactNode;
   paddingX?: boolean;
+  button?: boolean;
 }): JSX.Element {
   return (
     <span
-      className={`rcs-lnk ${props.paddingX && "px-2"} ${props.className}`}
+      className={`text-blue-500 hover:text-blue-600 cursor-pointer select-none ${
+        props.button
+          ? "active:text-blue-700 transition-colors"
+          : "hover:underline"
+      } ${props.paddingX && "px-2"} ${props.className}`}
       onClick={props.onClick}
     >
       {props.children}
