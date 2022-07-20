@@ -4,3 +4,4 @@ export * from "./list";
 export * from "./para";
 export * from "./floating";
 export * from "./tab";
+export * from "./badge";

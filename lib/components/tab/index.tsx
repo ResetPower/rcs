@@ -7,7 +7,7 @@ import {
 } from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
-interface TabContext {
+export interface TabContext {
   value: number;
   orientation: "vertical" | "horizontal";
   animate: boolean;
