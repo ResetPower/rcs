@@ -9,7 +9,7 @@
     @apply hover:bg-opacity-0;
   }
   .rcs-btn-contained {
-    @apply text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700;
+    @apply text-white bg-sky-500 hover:bg-sky-600 active:bg-sky-700;
   }
   .rcs-btn-contained:disabled {
     @apply bg-blue-800 dark:bg-gray-700 text-gray-200;

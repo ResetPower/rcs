@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { MdAnnouncement, MdKeyboardArrowDown, MdMenu } from "react-icons/md";
-import { Button, IconButton, Menu, Select, Tooltip } from "../../lib";
+import { Button, Menu, Select, Tooltip } from "../../lib";
 import { Booth } from "../components";
 
 export default function FloatingExample() {
@@ -28,6 +27,7 @@ export default function FloatingExample() {
             { value: 1, text: "Two" },
             { value: 2, text: "Three is the magic number" },
           ]}
+          fullWidth
         ></Select>
       </Booth>
       <Booth title="Tooltip">

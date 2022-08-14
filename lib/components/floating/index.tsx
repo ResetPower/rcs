@@ -22,6 +22,7 @@ export function FloatingView(props: {
   className?: string;
   placement?: Placement;
   padding?: number;
+  sameWidth?: boolean;
 }): JSX.Element {
   const [show, setShow] = useState(false);
   const { x, y, refs, reference, floating, strategy } =
@@ -71,6 +72,9 @@ export function FloatingView(props: {
             position: strategy,
             top: y ?? 0,
             left: x ?? 0,
+            width: props.sameWidth
+              ? refs.reference.current?.clientWidth
+              : undefined,
           }}
         >
           {accessNode(props.children, show, setShow)}

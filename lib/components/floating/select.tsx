@@ -1,4 +1,4 @@
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { FloatingView } from ".";
 import { Button } from "../input";
 import { ListItem } from "../list";
@@ -17,20 +17,35 @@ export function Select<V>(props: {
   className?: string;
   label?: string;
   disabled?: boolean;
+  fullWidth?: boolean;
 }): JSX.Element {
   return (
     <div className={props.className}>
       {props.label && <Label>{props.label}</Label>}
       <FloatingView
         className="py-2"
-        openerClassName="bg-card rounded-md"
+        openerClassName={`bg-card rounded-md ${props.fullWidth && "w-full"}`}
         opener={(open) => (
-          <Button active={open} className="m-0" variant="outlined">
-            {props.options.find((opt) => opt.value === props.value)?.text ??
-              "Not Selected"}
-            <MdKeyboardArrowDown size="1.5em" />
+          <Button
+            active={open}
+            className={`m-0 ${props.fullWidth && "w-full"}`}
+            variant="outlined"
+          >
+            <p className="flex-grow text-start">
+              {props.options.find((opt) => opt.value === props.value)?.text ??
+                "Not Selected"}
+            </p>
+            <MdKeyboardArrowDown
+              className={`${open && "hidden"}`}
+              size="1.5em"
+            />
+            <MdKeyboardArrowUp
+              className={`${!open && "hidden"}`}
+              size="1.5em"
+            />
           </Button>
         )}
+        sameWidth
       >
         {(_, setOpen) =>
           props.options.map((value, index) => (
