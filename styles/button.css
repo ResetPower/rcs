@@ -12,7 +12,7 @@
     @apply text-white bg-sky-500 hover:bg-sky-600 active:bg-sky-700;
   }
   .rcs-btn-contained:disabled {
-    @apply bg-blue-800 dark:bg-gray-700 text-gray-200;
+    @apply bg-sky-800 dark:bg-gray-700 text-gray-200;
   }
 
   .rcs-icon-btn {

@@ -8,7 +8,7 @@ export function ProgressBar(props: {
   return (
     <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
       <div
-        className="bg-blue-600 h-1.5 rounded-full dark:bg-blue-500"
+        className="bg-sky-500 h-1.5 rounded-full"
         style={{
           width: `${props.percentage ?? 100}%`,
         }}
