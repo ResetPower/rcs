@@ -80,7 +80,7 @@ export function TabBarItem(props: {
   return (
     <button
       className={`rcs-tab-bar-item ${
-        props.value === value ? "rcs-tab-bar-item-selected" : "text-contrast"
+        props.value === value && "rcs-tab-bar-item-selected"
       } whitespace-nowrap`}
       onClick={() => setValue(props.value)}
     >

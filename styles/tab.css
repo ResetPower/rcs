@@ -1,20 +1,26 @@
 @layer components {
   .rcs-tab-bar {
-    @apply p-3;
+    @apply border-divider;
   }
   .rcs-tab-bar-horizontal {
-    @apply flex space-x-1;
+    @apply flex border-b;
   }
   .rcs-tab-bar-vertical {
-    @apply space-y-1;
+    @apply border-r;
   }
 
+  .rcs-tab-bar-horizontal > .rcs-tab-bar-item {
+    @apply border-b-2;
+  }
+  .rcs-tab-bar-vertical > .rcs-tab-bar-item {
+    @apply border-r-2 w-full;
+  }
   .rcs-tab-bar-item {
-    @apply flex px-3 py-2 transition-colors hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-700 dark:active:bg-gray-600
-     rounded-md focus:outline-none font-medium;
+    @apply flex px-3 py-2 transition-colors hover:bg-gray-100 active:bg-gray-200 dark:hover:bg-gray-700 dark:active:bg-gray-600
+     focus:outline-none font-medium border-transparent;
   }
   .rcs-tab-bar-item-selected {
-    @apply text-blue-500 dark:text-indigo-400 bg-gray-200 dark:bg-gray-700;
+    @apply border-sky-500 text-sky-500;
   }
 
   .rcs-tab-body {
