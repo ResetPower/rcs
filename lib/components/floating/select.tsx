@@ -18,11 +18,13 @@ export function Select<V>(props: {
   label?: string;
   disabled?: boolean;
   fullWidth?: boolean;
+  placementTop?: boolean;
 }): JSX.Element {
   return (
     <div className={props.className}>
       {props.label && <Label>{props.label}</Label>}
       <FloatingView
+        placement={props.placementTop ? "top" : undefined}
         className="py-2"
         openerClassName={`bg-card rounded-md ${props.fullWidth && "w-full"}`}
         opener={(open) => (
@@ -36,11 +38,11 @@ export function Select<V>(props: {
                 "Not Selected"}
             </p>
             <MdKeyboardArrowDown
-              className={`${open && "hidden"}`}
+              className={`${(props.placementTop ? !open : open) && "hidden"}`}
               size="1.5em"
             />
             <MdKeyboardArrowUp
-              className={`${!open && "hidden"}`}
+              className={`${(props.placementTop ? open : !open) && "hidden"}`}
               size="1.5em"
             />
           </Button>

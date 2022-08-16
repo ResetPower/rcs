@@ -29,6 +29,17 @@ export default function FloatingExample() {
           ]}
           fullWidth
         ></Select>
+        <Select
+          value={value}
+          onChange={setValue}
+          options={[
+            { value: 0, text: "One" },
+            { value: 1, text: "Two" },
+            { value: 2, text: "Three is the magic number" },
+          ]}
+          fullWidth
+          placementTop
+        ></Select>
       </Booth>
       <Booth title="Tooltip">
         <Tooltip text="Tooltip Content">Tooltip Trigger</Tooltip>
