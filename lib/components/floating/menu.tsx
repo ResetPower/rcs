@@ -8,17 +8,20 @@ export interface MenuItem {
   icon?: ReactNode;
   className?: string;
   action?: Fn;
+  active?: boolean;
 }
 
 export function Menu(props: {
   children: AccessibleNode;
   items: MenuItem[];
+  wrapperClassName?: string;
   padding?: number;
 }): JSX.Element {
   return (
     <FloatingView
       padding={props.padding}
       className="py-2"
+      openerClassName={props.wrapperClassName}
       opener={props.children}
     >
       {(_, setOpen) =>
@@ -30,6 +33,7 @@ export function Menu(props: {
               call(value.action);
               setOpen(false);
             }}
+            active={value.active}
             dependent
           >
             {value.icon} <p className="flex-grow">{value.text}</p>
