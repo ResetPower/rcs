@@ -100,7 +100,7 @@ export function TinyTextField(props: {
       onKeyPress={(ev) => ev.key === "Enter" && call(props.onEnter)}
       onChange={(ev) => call(props.onChange, ev.target.value)}
       placeholder={props.placeholder}
-      className="rcs-tiny-tf"
+      className={`rcs-tiny-tf ${props.className}`}
     />
   );
 }
